@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import SuveryForm from "./components/Suvery.component";
+import { Routes, Route } from "react-router-dom";
+import Navigation from "./routes/navigation/navigation.component";
+
+const Done = () => {
+  return <h1>I am the done page</h1>;
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<SuveryForm />} />
+        <Route path="/done" element={<Done />} />
+      </Route>
+    </Routes>
   );
 }
 
