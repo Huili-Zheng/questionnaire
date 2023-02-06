@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import "survey-core/defaultV2.min.css";
 import { json } from "../../components/surveyJson/json.component";
-function Done({ submittedData }) {
+import { SurveyContext } from "../../context/context.component";
+
+function Done() {
+  const { submittedData } = useContext(SurveyContext);
   if (!submittedData) {
     return <div>Please first finish the form</div>;
   }

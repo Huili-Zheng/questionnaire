@@ -4,13 +4,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { SurveyProvider } from "./context/context.component";
 
 const rootElement = document.getElementById("root");
 
 render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <SurveyProvider>
+        <App />
+      </SurveyProvider>
     </BrowserRouter>
   </React.StrictMode>,
   rootElement
