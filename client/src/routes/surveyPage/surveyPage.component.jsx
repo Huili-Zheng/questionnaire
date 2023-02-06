@@ -26,15 +26,14 @@ const SurveyPage = () => {
   };
 
   const survey = new Model(json);
-  survey.onComplete.add((sender, options) => {
+  survey.onComplete.add(async (sender, options) => {
     setSubmittedData(sender.data);
-    Axios.post("http://localhost:3001/survey", sender.data)
-      .then((response) => {
-        console.log("response:", response.data);
-      })
-      .catch((error) => {
-        console.error("error:", error);
-      });
+    try {
+      alert("Thank you for completing the questionnaire!");
+      await Axios.post("http://localhost:3001/survey", sender.data);
+    } catch (error) {
+      console.error("error:", error);
+    }
   });
 
   return (
