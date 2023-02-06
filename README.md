@@ -16,6 +16,8 @@ It’s a WHO-5 questionnaire on patient portal.
 2. Change into the project directory:
 
   `cd client`  and `cd server`.
+  
+  (You need to do **step 3 and step 4** separately for 'client' and 'server')
 
 3. Install dependencies on client and server:
 
