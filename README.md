@@ -11,23 +11,23 @@ It’s a WHO-5 questionnaire on patient portal.
 
 1. Clone the repository:
 
-In the root directory of the project...
+  `git clone git@github.com:Huili-Zheng/questionnaire.git`
 
 2. Change into the project directory:
 
-`cd client`  and `cd server`.
+  `cd client`  and `cd server`.
 
 3. Install dependencies on client and server:
 
-`yarn install` or `npm install`.
+  `yarn install` or `npm install`.
 
 4. Start the client and server:
 
-`yarn start` or `npm start`.
+  `yarn start` or `npm start`.
 
 5. Create the MySQL database and seed it with user data:
 
-`sequelize db:seed:all` or `npm run seed`.
+  `sequelize db:seed:all` or `npm run seed`.
 
 ## Usage
 
