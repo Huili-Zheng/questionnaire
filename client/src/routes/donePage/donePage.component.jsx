@@ -1,14 +1,23 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import "survey-core/defaultV2.min.css";
 import { json } from "../../components/surveyJson/json.component";
 import { SurveyContext } from "../../context/context.component";
+import "./donePage.styles.scss";
 
 function Done() {
   const { submittedData } = useContext(SurveyContext);
   if (!submittedData) {
-    return <div>Please first finish the form</div>;
+    return (
+      <div>
+        <h1 className="surveyName">Week 2 WHO-5 Well-Being Index</h1>
+        <Link className="reminder-link" to="/survey">
+          Please first finish the form
+        </Link>
+      </div>
+    );
   }
 
   const { survey } = submittedData;
