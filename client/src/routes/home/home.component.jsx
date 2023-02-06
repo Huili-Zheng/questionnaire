@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div>
       <Outlet />
-      <h1>Hi, Welcome to the Suvery Center</h1>
+      <h1>Hi, Welcome to the Survey Center</h1>
     </div>
   );
 };

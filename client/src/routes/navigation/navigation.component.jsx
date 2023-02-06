@@ -2,6 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import { Fragment } from "react";
 import "./navigation.styles.scss";
 const Navigation = () => {
+  const id = 1;
   return (
     <Fragment>
       <div className="navigation">
@@ -9,8 +10,8 @@ const Navigation = () => {
           <Link className="nav-link" to="/">
             Home
           </Link>
-          <Link className="nav-link" to="/suvery">
-            Suvery
+          <Link className="nav-link" to="/survey">
+            Survey
           </Link>
           <Link className="nav-link" to="/done">
             Done

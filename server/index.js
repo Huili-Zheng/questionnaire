@@ -1,12 +1,13 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const app = express();
 
 const db = require("./models");
 
-const formRouter = require("./routes/Forms");
-
+const formRouter = require("./routes/Survey");
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/", formRouter);
