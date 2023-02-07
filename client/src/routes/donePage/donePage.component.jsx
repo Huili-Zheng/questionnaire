@@ -7,9 +7,9 @@ import { json } from "../../components/surveyJson/json.component";
 import { SurveyContext } from "../../context/context.component";
 import "./donePage.styles.scss";
 
-function Done({ week }) {
+function Done({ submittedSurvey }) {
   const { submittedData } = useContext(SurveyContext);
-  if (!submittedData) {
+  if (!submittedSurvey) {
     return (
       <div>
         <h1 className="surveyName">Week 2 WHO-5 Well-Being Index</h1>
@@ -20,7 +20,7 @@ function Done({ week }) {
     );
   }
 
-  const { survey } = submittedData;
+  const { survey } = submittedSurvey;
 
   const newSurvey = new Model(json);
   newSurvey.onComplete.add((sender, options) => {
@@ -39,7 +39,6 @@ function Done({ week }) {
 
   return (
     <div>
-      <h1 className="surveyName">Week {week} WHO-5 Well-Being Index</h1>
       <Survey model={newSurvey} />
     </div>
   );

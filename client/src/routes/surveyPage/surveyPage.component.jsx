@@ -1,5 +1,5 @@
 import "./surveyPage.styles.scss";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import "survey-core/defaultV2.min.css";
@@ -7,8 +7,13 @@ import Choices from "../../components/choices/choices.component";
 import Questions from "../../components/questions/questions.component";
 import Axios from "axios";
 import { SurveyContext } from "../../context/context.component";
+import Done from "../donePage/donePage.component";
+
 const SurveyPage = ({ week }) => {
   const { setSubmittedData } = useContext(SurveyContext);
+  const [submitted, setSubmitted] = useState(false);
+  const [submittedSurvey, setSubmittedSurvey] = useState();
+
   const json = {
     elements: [
       {
@@ -28,9 +33,11 @@ const SurveyPage = ({ week }) => {
   const survey = new Model(json);
   survey.onComplete.add(async (sender, options) => {
     setSubmittedData(sender.data);
+    setSubmittedSurvey(sender.data);
+    setSubmitted(true);
     console.log({
       survey: sender.data,
-      week: 2,
+      week: week,
     });
     try {
       alert("Thank you for completing the questionnaire!");
@@ -46,7 +53,11 @@ const SurveyPage = ({ week }) => {
   return (
     <div>
       <h1 className="surveyName">Week {week} WHO-5 Well-Being Index</h1>
-      <Survey model={survey} />
+      {submitted ? (
+        <Done submittedSurvey={submittedSurvey} />
+      ) : (
+        <Survey model={survey} />
+      )}
     </div>
   );
 };
