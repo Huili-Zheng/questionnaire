@@ -13,9 +13,6 @@ const Navigation = () => {
           <Link className="nav-link" to="/survey">
             Survey
           </Link>
-          <Link className="nav-link" to="/done">
-            Done
-          </Link>
         </div>
       </div>
       <Outlet />

@@ -1,16 +1,14 @@
 import "./surveyPage.styles.scss";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import "survey-core/defaultV2.min.css";
 import Choices from "../../components/choices/choices.component";
 import Questions from "../../components/questions/questions.component";
 import Axios from "axios";
-import { SurveyContext } from "../../context/context.component";
-import Done from "../donePage/donePage.component";
+import Done from "../../components/done/done.component";
 
 const SurveyPage = ({ week }) => {
-  const { setSubmittedData } = useContext(SurveyContext);
   const [submitted, setSubmitted] = useState(false);
   const [submittedSurvey, setSubmittedSurvey] = useState();
 
@@ -32,13 +30,8 @@ const SurveyPage = ({ week }) => {
 
   const survey = new Model(json);
   survey.onComplete.add(async (sender, options) => {
-    setSubmittedData(sender.data);
     setSubmittedSurvey(sender.data);
     setSubmitted(true);
-    console.log({
-      survey: sender.data,
-      week: week,
-    });
     try {
       alert("Thank you for completing the questionnaire!");
       await Axios.post("http://localhost:3001/survey", {
