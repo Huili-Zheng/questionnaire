@@ -1,6 +1,6 @@
 # questionnaire
 ## Introduction
-It’s a WHO-5 questionnaire on patient portal.
+It’s a questionnaire on patient portal.
 
 ## Prerequisites
 
