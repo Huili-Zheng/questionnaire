@@ -1,5 +1,5 @@
 import "./surveyPage.styles.scss";
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import "survey-core/defaultV2.min.css";

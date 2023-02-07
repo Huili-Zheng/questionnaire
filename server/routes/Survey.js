@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
 
 router.post("/survey", async (req, res) => {
   const surveyData = req.body.survey;
-  surveyData.uid = 2;
+  surveyData.uid = 1;
   surveyData.status = 1;
   // Query the database to get the latest submission count for this user
   const latestSubmission = await WhoForms.findOne({
