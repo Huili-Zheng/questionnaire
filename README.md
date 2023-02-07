@@ -35,7 +35,7 @@ It’s a questionnaire on patient portal.
 
 The application can be accessed at `http://localhost:3000` in your web browser. 
 
-Users can log in using the seeded user data or create a new account. Once the user is logged in, they will be directed to the questionnaire page. 
+Users can log in using the seeded user data. 
 
 The questionnaire consists of a series of multiple-choice questions, and the user can select their answer for each question by clicking on the appropriate radio button. 
 
