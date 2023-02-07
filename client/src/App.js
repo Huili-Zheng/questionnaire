@@ -5,12 +5,13 @@ import Home from "./routes/home/home.component";
 import Done from "./routes/donePage/donePage.component";
 
 function App() {
+  const week = 2;
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>
         <Route index element={<Home />} />
-        <Route path="/survey" element={<SurveyPage />} />
-        <Route path="/done" element={<Done id={1} />} />
+        <Route path="/survey" element={<SurveyPage week={week} />} />
+        <Route path="/done" element={<Done week={week} />} />
       </Route>
     </Routes>
   );

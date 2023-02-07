@@ -7,7 +7,7 @@ import Choices from "../../components/choices/choices.component";
 import Questions from "../../components/questions/questions.component";
 import Axios from "axios";
 import { SurveyContext } from "../../context/context.component";
-const SurveyPage = () => {
+const SurveyPage = ({ week }) => {
   const { setSubmittedData } = useContext(SurveyContext);
   const json = {
     elements: [
@@ -28,9 +28,16 @@ const SurveyPage = () => {
   const survey = new Model(json);
   survey.onComplete.add(async (sender, options) => {
     setSubmittedData(sender.data);
+    console.log({
+      survey: sender.data,
+      week: 2,
+    });
     try {
       alert("Thank you for completing the questionnaire!");
-      await Axios.post("http://localhost:3001/survey", sender.data);
+      await Axios.post("http://localhost:3001/survey", {
+        survey: sender.data,
+        week: 2,
+      });
     } catch (error) {
       console.error("error:", error);
     }
@@ -38,7 +45,7 @@ const SurveyPage = () => {
 
   return (
     <div>
-      <h1 className="surveyName">Week 2 WHO-5 Well-Being Index</h1>
+      <h1 className="surveyName">Week {week} WHO-5 Well-Being Index</h1>
       <Survey model={survey} />
     </div>
   );

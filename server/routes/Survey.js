@@ -8,17 +8,11 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/survey", async (req, res) => {
-  const surveyData = req.body.survey;
+  const surveyData = req.body.survey.survey;
   surveyData.uid = 1;
   surveyData.status = 1;
-  // Query the database to get the latest submission count for this user
-  const latestSubmission = await WhoForms.findOne({
-    where: { uid: surveyData.uid },
-    order: [["created_timestamp", "DESC"]],
-  });
 
-  // Increment the submission count
-  surveyData.timepoint = latestSubmission ? latestSubmission.timepoint + 1 : 1;
+  surveyData.timepoint = 2;
 
   surveyData.created_timestamp = Math.floor(Date.now() / 1000);
 

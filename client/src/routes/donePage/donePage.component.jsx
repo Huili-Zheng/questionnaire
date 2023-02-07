@@ -7,7 +7,7 @@ import { json } from "../../components/surveyJson/json.component";
 import { SurveyContext } from "../../context/context.component";
 import "./donePage.styles.scss";
 
-function Done() {
+function Done({ week }) {
   const { submittedData } = useContext(SurveyContext);
   if (!submittedData) {
     return (
@@ -39,7 +39,7 @@ function Done() {
 
   return (
     <div>
-      <h1 className="surveyName">Week 2 WHO-5 Well-Being Index</h1>
+      <h1 className="surveyName">Week {week} WHO-5 Well-Being Index</h1>
       <Survey model={newSurvey} />
     </div>
   );
