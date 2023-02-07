@@ -36,7 +36,7 @@ const SurveyPage = ({ week }) => {
       alert("Thank you for completing the questionnaire!");
       await Axios.post("http://localhost:3001/survey", {
         survey: sender.data,
-        week: 2,
+        week: week,
       });
     } catch (error) {
       console.error("error:", error);

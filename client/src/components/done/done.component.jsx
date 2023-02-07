@@ -5,20 +5,12 @@ import "survey-core/defaultV2.min.css";
 import { json } from "../surveyJson/json.component";
 
 function Done({ submittedSurvey }) {
-  const { survey } = submittedSurvey;
-
   const newSurvey = new Model(json);
   newSurvey.onComplete.add((sender, options) => {
     console.log(JSON.stringify(sender.data, null, 3));
   });
   newSurvey.data = {
-    survey: {
-      q1: survey["q1"],
-      q2: survey["q2"],
-      q3: survey["q3"],
-      q4: survey["q4"],
-      q5: survey["q5"],
-    },
+    survey: { ...submittedSurvey.survey },
   };
   newSurvey.mode = "display";
 

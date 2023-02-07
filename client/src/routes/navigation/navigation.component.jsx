@@ -2,7 +2,6 @@ import { Outlet, Link } from "react-router-dom";
 import { Fragment } from "react";
 import "./navigation.styles.scss";
 const Navigation = () => {
-  const id = 1;
   return (
     <Fragment>
       <div className="navigation">
