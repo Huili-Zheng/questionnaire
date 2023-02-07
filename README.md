@@ -11,7 +11,7 @@ It’s a WHO-5 questionnaire on patient portal.
 
 1. Clone the repository:
 
-  `git clone git@github.com:Huili-Zheng/questionnaire.git`
+  `git clone https://github.com/Huili-Zheng/questionnaire.git`
 
 2. Change into the project directory:
 
