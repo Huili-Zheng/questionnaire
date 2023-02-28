@@ -8,16 +8,23 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/survey", async (req, res) => {
-  const surveyData = req.body.survey.survey;
-  surveyData.uid = 1;
-  surveyData.status = 1;
+  try {
+    const surveyData = req.body.survey.survey;
 
-  surveyData.timepoint = 2;
+    surveyData.uid = 1;
+    surveyData.status = 1;
 
-  surveyData.created_timestamp = Math.floor(Date.now() / 1000);
+    surveyData.timepoint = req.body.week;
 
-  await WhoForms.create(surveyData);
-  console.log(surveyData);
+    surveyData.created_timestamp = Math.floor(Date.now() / 1000);
+
+    await WhoForms.create(surveyData);
+    console.log(surveyData);
+    res.status(200).json({ message: "Survey data inserted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error inserting survey data" });
+  }
 });
 
 module.exports = router;
